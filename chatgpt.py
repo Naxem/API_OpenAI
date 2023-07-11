@@ -1,5 +1,5 @@
 import openai 
-openai.api_key = "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"
+openai.api_key = "Key"
 messages = []
 
 def start_assisant():

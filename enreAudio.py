@@ -1,35 +1,48 @@
+import speech_recognition as sr
+
 import sounddevice as sd
 from scipy.io.wavfile import write
 import wavio as wv
 import wave
 
-def enregistrement(freq, duration):
-    #démarre l'enregistrement
-    recording = sd.rec(int(duration * freq),
-        samplerate=freq, channels=2)
-    sd.wait()
 
-    transform_to_wav(recording, freq, duration)
+# Paramètres d'enregistrement
+trigger_words = ["ok michel", "OK MICHEL", "Ok Michel", "ok Michel", "ok michelle", "OK MICHELLLE", "Ok Michellle", "ok Michellle"]  # Mot déclencheur à détecter
+duration = 10  # Durée maximale d'enregistrement en secondes
+boucle = True
 
+# Configuration du recognizer
+r = sr.Recognizer()
 
-def transform_to_wav(recording, freq, duration):
-    #wavio pour convertir le NumPy en fichier audio
-    wv.write("vocal0.wav", recording, freq, sampwidth=2)
+def enregistrement():
+    global boucle
+    freq = 44100
+    # Enregistrement audio
+    while boucle:
+        with sr.Microphone() as source:
+            print("En attente du mot déclencheur...")
+            audio = r.listen(source)
 
-    filename = "vocal0.wav"
-
-    #test le fichier audio
-    try:
-        with wave.open(filename, 'rb') as audio_file:
-            frames = audio_file.getnframes()
-            channels = audio_file.getnchannels()
-            sample_width = audio_file.getsampwidth()
-            framerate = audio_file.getframerate()
-
-            # Vérifier si les propriétés sont valides pour la lecture
-            if frames > 0 and channels > 0 and sample_width > 0 and framerate > 0:
-                print("Le fichier audio est valide et peut être lu.")
-            else:
-                print("Le fichier audio est invalide.")
-    except wave.Error:
-        print("Impossible d'ouvrir le fichier audio.")
+            try:
+                # Reconnaissance vocale
+                text = r.recognize_google(audio, language="fr-FR")
+                
+                # Vérification des mots déclencheurs
+                for trigger_word in trigger_words:
+                    if trigger_word in text:
+                        print(f"Mot déclencheur '{trigger_word}' détecté. Enregistrement audio démarré.")
+                        #démarre l'enregistrement
+                        audio = r.listen(source, timeout=duration)
+                        print("Enregistrement audio terminé.")
+                        
+                        # Sauvegarde de l'audio dans un fichier WAV
+                        with open("vocal0.wav", "wb") as f:
+                            f.write(audio.get_wav_data())
+                            boucle = False
+                        break
+                else:
+                    print("Aucun mot déclencheur détecté.")
+            except sr.UnknownValueError:
+                print("Impossible de reconnaître la parole.")
+            except sr.RequestError as e:
+                print(f"Erreur lors de la requête au service de reconnaissance vocale : {e}")
