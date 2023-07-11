@@ -1,4 +1,4 @@
-import openai 
+import openai
 openai.api_key = "Key"
 messages = []
 
