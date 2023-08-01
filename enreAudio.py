@@ -3,8 +3,6 @@ import speech_recognition as sr
 import sounddevice as sd
 from scipy.io.wavfile import write
 import wavio as wv
-import wave
-
 
 # Paramètres d'enregistrement
 trigger_words = ["ok michel", "OK MICHEL", "Ok Michel", "ok Michel", "ok michelle", "OK MICHELLLE", "Ok Michellle", "ok Michellle"]  # Mot déclencheur à détecter
