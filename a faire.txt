@@ -1,3 +1,0 @@
-Google Cloud Speech-to-Text
-add commentaire
-add print dans la console
