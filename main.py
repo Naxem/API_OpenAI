@@ -6,8 +6,9 @@ def mainF():
     chatgpt.start_assisant()
     enreAudio.enregistrement()
     question = whisper_file.translate_in_chat()
-    print(question)
+    print(question) #Question display
     chatgpt.create_message(question)
     chatgpt.chatgptF()
     enreAudio.boucle = True
+# end mainF
 mainF()
