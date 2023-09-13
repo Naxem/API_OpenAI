@@ -10,5 +10,4 @@ def mainF():
     chatgpt.create_message(question)
     chatgpt.chatgptF()
     enreAudio.boucle = True
-
 mainF()

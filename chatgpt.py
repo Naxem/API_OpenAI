@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "Key"
+openai.api_key = ""
 messages = []
 
 def start_assisant():
@@ -17,3 +17,6 @@ def chatgptF():
     response_chatgpt = completion.choices[0].message.content
     messages.append({"role": "assistant", "content": response_chatgpt})
     print(response_chatgpt)
+    
+    #"2Cup2MCpD48B57Vd3x"
+    #"PMT3BlbkFJCp1qYNXkDTgxDIV53pFu"
