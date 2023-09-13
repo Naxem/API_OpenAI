@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "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" # replace "Key-API" with your api key 
+openai.api_key = "Key-API" # replace "Key-API" with your api key 
 messages = []
 
 # configure ChatGPT with a system message, you can modify this phrase to personalize your assistant's responses. 
