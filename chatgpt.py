@@ -28,7 +28,7 @@ def chatgptF():
         messages = messages
     )
 
-    response_chatgpt = completion.choices[0].message.content # retrieves the answer
+    response_chatgpt = completion.choices[0].message.content #retrieves the answer
     messages.append({"role": "assistant", "content": response_chatgpt})
     return response_chatgpt
 #end chatgptF
