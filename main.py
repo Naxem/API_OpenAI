@@ -4,7 +4,7 @@ import whisper_file
 import dallE
 
 def mainF():
-    print("Entre le choix que vous voulez")
+    print("Entré le choix que vous voulez")
     print("Choix 1 = assistant vocal, Choix 2 = chat gpt, choix 3 = Dall-E avec chatGPT et Choix 4 = Dall-E")
     choix1 = int(input("Choix entre 1 2 3 4 : "))
     #chaque choix va lancer un function diférente
@@ -32,7 +32,7 @@ def chatgptVoc():
 
 def chatgptText():
     chatgpt.start_assisant(2)
-    question = eval(input("Entrez votre question pour Mr Gpt : "))
+    question = input("Entrez votre question pour Mr Gpt : ")
     print(question)
     chatgpt.create_message(question)
     reponse = chatgpt.chatgptF()
@@ -41,7 +41,7 @@ def chatgptText():
 
 def DallEAndGPT():
     chatgpt.start_assisant(3)
-    question = eval(input("Entrez une description d'image pour que ChatGPT fasse lme prompt : "))
+    question = input("Entrez une description d'image pour que ChatGPT fasse lme prompt : ")
     print(question)
     chatgpt.create_message(question)
     reponse = chatgpt.chatgptF()
@@ -50,7 +50,7 @@ def DallEAndGPT():
 #end DallEAndGPT
 
 def DallE():
-    text = eval(input("Entrez une description pour l'image : "))
+    text = nput("Entrez une description pour l'image : ")
     print(text)
     dallE.dallE(text)
 #end DallE
