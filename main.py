@@ -1,14 +1,58 @@
 import enreAudio
 import chatgpt
 import whisper_file
+import dallE
 
 def mainF():
-    chatgpt.start_assisant()
+    print("Entre le choix que vous voulez")
+    print("Choix 1 = assistant vocal, Choix 2 = chat gpt, choix 3 = Dall-E avec chatGPT et Choix 4 = Dall-E")
+    choix1 = int(input("Choix entre 1 2 3 4 : "))
+    #chaque choix va lancer un function diférente
+    if choix1 == 1:
+        chatgptVoc()
+    elif choix1 == 2:
+        chatgptText()
+    elif choix1 == 3:
+        DallEAndGPT()
+    elif choix1 == 4:
+        DallE()
+    else:
+        print("Erreur: choix pas dans la liste")
+#end mainF
+
+def chatgptVoc():
+    chatgpt.start_assisant(1)
     enreAudio.enregistrement()
     question = whisper_file.translate_in_chat()
     print(question) #Question display
     chatgpt.create_message(question)
     chatgpt.chatgptF()
     enreAudio.boucle = True
-# end mainF
+#end chatgptVoc
+
+def chatgptText():
+    chatgpt.start_assisant(2)
+    question = eval(input("Entrez votre question pour Mr Gpt : "))
+    print(question)
+    chatgpt.create_message(question)
+    reponse = chatgpt.chatgptF()
+    print(reponse) #Display the answer
+#end chatgptText
+
+def DallEAndGPT():
+    chatgpt.start_assisant(3)
+    question = eval(input("Entrez une description d'image pour que ChatGPT fasse lme prompt : "))
+    print(question)
+    chatgpt.create_message(question)
+    reponse = chatgpt.chatgptF()
+    print(reponse) #Display the answer
+    dallE.dallE(reponse)
+#end DallEAndGPT
+
+def DallE():
+    text = eval(input("Entrez une description pour l'image : "))
+    print(text)
+    dallE.dallE(text)
+#end DallE
+
 mainF()
