@@ -11,7 +11,7 @@ def start_assisant(type):
     elif type == 2:
         messages.append({"role": "system", "content": "You answer each question as precisely as possible. If necessary, make a list."})
     elif type == 3:
-        messages.append({"role": "system", "content": "you're a Dall-E specialist, you're stuck with the documentation, you have to answer to get a prompt to generate an image with Dall-E."})
+        messages.append({"role": "system", "content": "you must answer me to create a prompt for Dall-E 3 that will allow me to generate images, your answer must be that the prompt no more no less"})
     else:
         print("Ereur type in start_assisant")
 #end start_assisant

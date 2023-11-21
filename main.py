@@ -41,8 +41,7 @@ def chatgptText():
 
 def DallEAndGPT():
     chatgpt.start_assisant(3)
-    question = input("Entrez une description d'image pour que ChatGPT fasse lme prompt : ")
-    print(question)
+    question = input("Entrez une description d'image pour que ChatGPT fasse le prompt : ")
     chatgpt.create_message(question)
     reponse = chatgpt.chatgptF()
     print(reponse) #Display the answer
@@ -50,8 +49,7 @@ def DallEAndGPT():
 #end DallEAndGPT
 
 def DallE():
-    text = nput("Entrez une description pour l'image : ")
-    print(text)
+    text = input("Entrez une description pour l'image : ")
     dallE.dallE(text)
 #end DallE
 
