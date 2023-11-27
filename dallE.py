@@ -8,7 +8,7 @@ def dallE(txt):
         model="dall-e-3",
         prompt=txt,
         size="1024x1024",
-        quality="standard",
+        quality="hd",
         n=1,
     )
 
