@@ -21,10 +21,10 @@ def create_message(msg):
     messages.append({"role": "user", "content": msg})
 #end create_message
 
-#configure ChatGPT here to use version 3.5 turbo
+#configure ChatGPT here to use version 4 06/13
 def chatgptF():
     completion = openai.ChatCompletion.create(
-        model= "gpt-3.5-turbo",
+        model= "gpt-4-0613",
         messages = messages
     )
 

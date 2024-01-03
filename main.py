@@ -2,11 +2,12 @@ import enreAudio
 import chatgpt
 import whisper_file
 import dallE
+import chatGPTVision
 
 def mainF():
     print("Entré le choix que vous voulez")
-    print("Choix 1 = assistant vocal, Choix 2 = chat gpt, choix 3 = Dall-E avec chatGPT et Choix 4 = Dall-E")
-    choix1 = int(input("Choix entre 1 2 3 4 : "))
+    print("Choix 1 = assistant vocal, Choix 2 = chat gpt, choix 3 = Dall-E avec chatGPT et Choix 4 = Dall-E, choix 5 = Vision")
+    choix1 = int(input("Choix entre 1 2 3 4 5 : "))
     #chaque choix va lancer un function diférente
     if choix1 == 1:
         chatgptVoc()
@@ -16,6 +17,8 @@ def mainF():
         DallEAndGPT()
     elif choix1 == 4:
         DallE()
+    elif choix1 == 5:
+        GPT4Vision()
     else:
         print("Erreur: choix pas dans la liste")
 #end mainF
@@ -53,4 +56,8 @@ def DallE():
     dallE.dallE(text)
 #end DallE
 
+def GPT4Vision():
+    text = input("Entrez une description pour Vision : ")
+    chatGPTVision.startVision(text)
+#end GPT4Vision
 mainF()
