@@ -1,0 +1,8 @@
+{
+    "python.terminal.shellArgs": [
+        "-m",
+        "venv",
+        "C:\Program Files\Python312"
+    ]
+    
+}

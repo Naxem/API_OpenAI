@@ -4,7 +4,7 @@ import apiKey
 openai.api_key = apiKey.key #replace "Key-API" with your api key in file (apiKey)
 
 def dallE(txt):
-    response = openai.Image.create(
+    response = openai.images.generate(
         model="dall-e-3",
         prompt=txt,
         size="1024x1024",
