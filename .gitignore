@@ -4,6 +4,9 @@ __pycache__/whisper_file.cpython-312.pyc
 __pycache__/apiKey.cpython-312.pyc
 __pycache__/chatgpt.cpython-312.pyc
 __pycache__/dallE.cpython-312.pyc
+<<<<<<< HEAD
 __pycache__/enreAudio.cpython-312.pyc
 *.pyc
 .vscode/settings.json
+=======
+>>>>>>> parent of c308cc1 (update 18/01/2024)
