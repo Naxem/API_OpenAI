@@ -6,3 +6,4 @@ __pycache__/chatgpt.cpython-312.pyc
 __pycache__/dallE.cpython-312.pyc
 __pycache__/enreAudio.cpython-312.pyc
 *.pyc
+.vscode/settings.json
