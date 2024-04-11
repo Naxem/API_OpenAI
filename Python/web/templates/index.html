@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenAI Interface</title>
+</head>
+<body>
+    <h1>OpenAI Interface</h1>
+
+    <form action="/choix_ia/2" method="post" id="iaForm">
+        <button id="DallE" name="DallE" onclick="submitForm(1)">Dall-e</button><br>
+        <button id="chatGTP" name="chatGTP" onclick="submitForm(2)">ChatGTP</button><br>
+    </form>
+    <script>
+        function submitForm(choice) {
+            var form = document.getElementById('iaForm');
+            form.action = "/choix_ia/" + choice;
+
+            //Soumettre le formulaire
+            form.submit();
+        }
+    </script>
+
+
+    <form action="/choix_ia/2" method="post">
+        <label for="prompt">Prompt:</label><br>
+        <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Generate Response">
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+            const text = await response.text();
+            document.getElementById('response').textContent = text;
+        });
+    </script>
+</body>
+</html>
