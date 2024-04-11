@@ -20,13 +20,11 @@ def choix_ia(choix):
         choix = "choix 3"
     else:
         choix = "erreur: pas de corespondance dans la liste de choix"
-    return choix
+    return render_template('prompt.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
     
-    
 def chat_gpt_text():
-    
     start_assisant(2)
     
