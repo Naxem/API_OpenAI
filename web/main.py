@@ -1,10 +1,7 @@
 from flask import Flask, render_template, request
-import openai
-from config.key import key
 from function.chatgpt import *
 
 app = Flask(__name__)
-openai.api_key = key
 
 @app.route('/')
 def home():
@@ -13,9 +10,10 @@ def home():
 @app.route('/choix_ia/<int:choix>', methods=['POST'])
 def choix_ia(choix):
     if choix == 1:
-        chat_gpt_text()
+        choix = "choix 1"
     elif choix == 2:
-        choix = "ok2"
+        start_assisant(2)
+        print("Success: start Chat GPT4")
     elif choix == 3:
         choix = "choix 3"
     else:
@@ -24,7 +22,3 @@ def choix_ia(choix):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-def chat_gpt_text():
-    start_assisant(2)
-    
