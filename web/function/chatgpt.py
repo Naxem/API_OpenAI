@@ -18,13 +18,13 @@ def start_assisant(type):
 def create_message(msg):
     messages.append({"role": "user", "content": msg})
 
-#configure ChatGPT here to use version 4 06/13
+#configure ChatGPT
 def chatgptF():
     completion = openai.ChatCompletion.create(
-        model= "gpt-4-0613",
+        model= "gpt-4-turbo-2024-04-09",
         messages = messages
     )
 
-    response_chatgpt = completion.choices[0].message.content #retrieves the answer
+    response_chatgpt = completion.choices[0].message.content
     messages.append({"role": "assistant", "content": response_chatgpt})
     return response_chatgpt

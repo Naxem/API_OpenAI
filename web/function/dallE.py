@@ -12,5 +12,5 @@ def dallE(txt):
     )
 
     image_url = response.data[0].url
-    print(image_url)
+    return image_url
 #end dallE

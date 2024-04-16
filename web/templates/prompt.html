@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompt</title>
 </head>
+
 <body>
-    <form action="/choix_ia" method="post">
-        <label for="prompt">Prompt:</label><br>
+    <h1>Entrez votre prompt :</h1>
+    <form method="post" id="PromptForm">
+        <label for="prompt">Prompt :</label><br>
         <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
-        <input type="submit" value="Generate Response">
+        <button onclick="submitFormPrompt()">Generate Response</button>
     </form>
+
     <div id="response"></div>
 
     <script>
-        document.querySelector('form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData
-            });
-            const text = await response.text();
-            document.getElementById('response').textContent = text;
-        });
+        function submitFormPrompt() {
+            let form = document.getElementById('PromptForm');
+            let prompt_user = document.getElementById('prompt').value;
+
+            const url = window.location.href;
+            const segments = url.split('/');
+            let number = segments[segments.length - 1];
+            console.log(number)
+
+            if (number == 2) {
+                //Utiliser encodeURIComponent pour éviter les problèmes avec les caractères spéciaux
+                form.action = "../chatgpt/" + encodeURIComponent(prompt_user);
+                form.submit();
+            } else if(number == 1) {
+                form.action = "../dallE/" + encodeURIComponent(prompt_user);
+                form.submit();
+            } else {
+                console.log("Erreur: promt html number not correct")
+            }
+        }
     </script>
 </body>
 </html>
