@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result_dallE.css') }}">
+    <title>Résulat de la requête</title>
+</head>
+
+<body>
+    <h1>Résultat de Dall-e: </h1>
+    <div class="main_img">
+        <img class="img-result" src="{{ result }}" alt="Image génére par dall-e">
+        <a href="{{ result }}" download>download</a>
+    </div>
+</body>
+
+</html>

@@ -11,4 +11,3 @@ def translate_in_chat():
     audio_file = open("vocal0.wav", "rb") # open audio
     transcript = openai.Audio.transcribe("whisper-1", audio_file) # audio transcription
     return transcript["text"]
-#end translate_in_chat

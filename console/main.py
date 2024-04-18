@@ -21,7 +21,6 @@ def mainF():
         GPT4Vision()
     else:
         print("Erreur: choix pas dans la liste")
-#end mainF
 
 def chatgptVoc():
     chatgpt.start_assisant(1)
@@ -31,7 +30,6 @@ def chatgptVoc():
     chatgpt.create_message(question)
     chatgpt.chatgptF()
     enreAudio.boucle = True
-#end chatgptVoc
 
 def chatgptText():
     chatgpt.start_assisant(2)
@@ -40,7 +38,6 @@ def chatgptText():
     chatgpt.create_message(question)
     reponse = chatgpt.chatgptF()
     print(reponse) #Display the answer
-#end chatgptText
 
 def DallEAndGPT():
     chatgpt.start_assisant(3)
@@ -49,15 +46,13 @@ def DallEAndGPT():
     reponse = chatgpt.chatgptF()
     print(reponse) #Display the answer
     dallE.dallE(reponse)
-#end DallEAndGPT
 
 def DallE():
     text = input("Entrez une description pour l'image : ")
     dallE.dallE(text)
-#end DallE
 
 def GPT4Vision():
     text = input("Entrez une description pour Vision : ")
     chatGPTVision.startVision(text)
-#end GPT4Vision
+
 mainF()

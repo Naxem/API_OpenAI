@@ -1,7 +1,7 @@
 import speech_recognition as sr
 
 #Recording parameters
-trigger_words = ["ok michel", "OK MICHEL", "Ok Michel", "ok Michel", "ok michelle", "OK MICHELLLE", "Ok Michellle", "ok Michellle"]  # Trigger word
+trigger_words = ["ok michel", "OK MICHEL", "Ok Michel", "ok Michel", "ok michelle", "OK MICHELLLE", "Ok Michellle", "ok Michellle"]  #Trigger word
 duration = 10  #Maximum recording time in seconds
 boucle = True
 

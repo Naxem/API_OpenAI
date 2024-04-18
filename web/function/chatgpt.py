@@ -1,5 +1,7 @@
 import openai
+from config.key import key_openai
 
+openai.api_key = key_openai
 messages = []
 
 #configurer ChatGPT avec un message système
@@ -9,20 +11,22 @@ def start_assisant(type):
     elif type == 2: #écrit
         messages.append({"role": "system", "content": "Vous répondez à chaque question le plus précisément possible. Si nécessaire, faites une liste."})
     else:
-        print("Ereur type in start_assisant")
+        return print("Ereur type in start_assisant")
+    return print("Success: phase 1")
 
 #préparation question/message
 def create_message(msg):
     messages.append({"role": "user", "content": msg})
+    print("Success: phase 2")
 
-#configure ChatGPT here to use version 4 06/13
+#configure ChatGPT & récupére la reponse
 def chatgptF():
     completion = openai.ChatCompletion.create(
-        model= "gpt-4-0613",
+        model= "gpt-4-turbo-2024-04-09",
         messages = messages
     )
 
-    response_chatgpt = completion.choices[0].message.content #retrieves the answer
+    response_chatgpt = completion.choices[0].message.content
     messages.append({"role": "assistant", "content": response_chatgpt})
+    print("Success: phase 3")
     return response_chatgpt
-#end chatgptF

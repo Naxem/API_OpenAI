@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>OpenAI Interface</title>
-</head>
-<body>
-    <h1>OpenAI Interface</h1>
+<html lang="fr">
 
-    <form action="/choix_ia/2" method="post" id="iaForm">
-        <button id="DallE" name="DallE" onclick="submitForm(1)">Dall-e</button><br>
-        <button id="chatGTP" name="chatGTP" onclick="submitForm(2)">ChatGTP</button><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <h1>OpenAI Interface: </h1>
+
+    <form method="post" id="iaForm">
+        <button id="Dall-E" name="Dall-E" onclick="submitForm(1)">Dall-e</button>
+        <button id="chatGTP" name="chatGTP" onclick="submitForm(2)">ChatGTP</button>
     </form>
     <script>
         function submitForm(choice) {
-            var form = document.getElementById('iaForm');
+            let form = document.getElementById('iaForm');
             form.action = "/choix_ia/" + choice;
-
             //Soumettre le formulaire
             form.submit();
         }
     </script>
 </body>
+
 </html>
