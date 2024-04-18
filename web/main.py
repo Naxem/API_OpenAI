@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from function.chatgpt import *
+from function.dallE import dallE
 
 app = Flask(__name__)
 
@@ -27,7 +28,7 @@ def chatgpt(msg):
     return render_template('result_chatgpt.html', result=result)
     
 @app.route('/dallE/<string:msg>', methods=['POST'])
-def dallE(msg):
+def dall_E(msg):
     result = dallE(msg)
     return render_template('result_dallE.html', result=result)
 

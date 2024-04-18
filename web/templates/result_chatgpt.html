@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résulat de la requête</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result_dallE.css') }}">
 </head>
+
 <body>
-    <h1>Résultat du ChatGPT</h1>
-    <p>Le message généré est: {{ result }}</p>
+    <div>
+        <h1>Résultat du ChatGPT: </h1>
+        <p class="div-p">Le message généré est: {{ result }}</p>
+    </div>
 </body>
+
 </html>

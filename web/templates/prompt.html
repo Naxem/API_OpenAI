@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prompt.css') }}">
 </head>
 
 <body>
-    <h1>Entrez votre prompt :</h1>
+    <h1>Entrez votre prompt: </h1>
     <form method="post" id="PromptForm">
-        <label for="prompt">Prompt :</label><br>
-        <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br>
-        <button onclick="submitFormPrompt()">Generate Response</button>
+        <textarea id="prompt" name="prompt" rows="7" cols="60"></textarea>
+        <button class="btn" onclick="submitFormPrompt()">Generate Response</button>
     </form>
 
     <div id="response"></div>
@@ -31,7 +31,7 @@
                 //Utiliser encodeURIComponent pour éviter les problèmes avec les caractères spéciaux
                 form.action = "../chatgpt/" + encodeURIComponent(prompt_user);
                 form.submit();
-            } else if(number == 1) {
+            } else if (number == 1) {
                 form.action = "../dallE/" + encodeURIComponent(prompt_user);
                 form.submit();
             } else {
@@ -40,4 +40,5 @@
         }
     </script>
 </body>
+
 </html>

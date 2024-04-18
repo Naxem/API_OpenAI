@@ -1,7 +1,7 @@
 import openai
 import apiKey
 
-openai.api_key = apiKey.key #replace "Key-API" with your api key in file (apiKey)
+openai.api_key = apiKey.key
 
 def dallE(txt):
     response = openai.Image.create(
@@ -13,4 +13,3 @@ def dallE(txt):
 
     image_url = response.data[0].url
     print(image_url)
-#end dallE

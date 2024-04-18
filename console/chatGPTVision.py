@@ -3,14 +3,13 @@ import base64
 import fileinput
 import requests
 
-api_key = apiKey.key #replace "Key-API" with your api key in file (apiKey)
+api_key = apiKey.key
 messages = []
 
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')
-#end encode_image
 
 #configure ChatGPT here to use version 4 vision
 def chatgptVision(img, txt):
@@ -41,7 +40,6 @@ def chatgptVision(img, txt):
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
     return response.json()
-#end chatgptVision
 
 def startVision(txt):
    print("Entrez le chemin de l'image :")
@@ -51,4 +49,3 @@ def startVision(txt):
         # Traitement de l'image
         img64 = encode_image(image_path)
         print(chatgptVision(img64, txt))
-#end startVision

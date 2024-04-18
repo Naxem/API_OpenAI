@@ -1,0 +1,45 @@
+body {
+    background-color: #1b263b;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 2px;
+    color: #FFFF;
+}
+
+h1:hover {
+    cursor: default;
+}
+
+textarea {
+    border-radius: 3px;
+    padding: 2px;
+    background-color: #1a4966;
+    color: #ffcad4;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-top: 20px;
+    width: 500px;
+    height: 100px;
+}
+
+.btn {
+    margin-top: 20px;
+    color: #ffcad4;
+    background-color: #1a4966;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 3px;
+}
+
+#iaForm button:hover {
+    cursor: pointer;
+}
